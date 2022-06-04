@@ -5,16 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlayStream"
         mc:Ignorable="d"
-        Title="Inicio" Height="450" Width="800">
+        Title="Inicio" Height="450" Width="800" Icon="Logo.png">
     <Grid>
-        <Label Content="PlayStream" Height="69"  Width="180" HorizontalAlignment="Left"  Foreground="Red" FontWeight="Bold" FontSize="30" Margin="10,16,0,349" />
+        <Label Content="PlayStream"  Width="168" HorizontalAlignment="Left"  Foreground="Red" FontWeight="Bold" FontSize="30" Margin="10,0,0,334" RenderTransformOrigin="0.532,-0.047" />
 
-        <DockPanel >
-            <ToolBar Height="75"  DockPanel.Dock="Top" Margin="200,0,0,0">
-                <Button x:Name="btnVolver" Content="Inicio" Height="61" VerticalAlignment="Top" Width="173"  FontSize="16" FontWeight="Bold"/>
-                <Button x:Name="btnPagina1" Content="Categorías" Height="60" VerticalAlignment="Top" Width="205"  FontSize="16" FontWeight="Bold"/>
+        <DockPanel HorizontalAlignment="Stretch">
+            <ToolBar Height="66"  DockPanel.Dock="Top" Margin="200,0,0,0" Width="619">
+                <Button x:Name="btnVolver" Content="Peliculas" Height="61" VerticalAlignment="Top" Width="173"  FontSize="16" FontWeight="Bold" Click="btnPeliculas_Click"/>
+                <Button x:Name="btnPagina1" Content="Series" Height="60" Width="197" VerticalAlignment="Top" FontSize="16" FontWeight="Bold" Click="btnPagina1_Click"/>
+                <Button x:Name="btnPerfil" Content="Mi perfil" Height="60" Width="192" Click="BtnPerfil_Click" FontSize="16" FontWeight="Bold" Foreground="Black"/>
+
             </ToolBar>
             <Frame x:Name="framePrincipal" Content="Frame"/>
         </DockPanel>
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="677,372,0,0"
+            VerticalAlignment="Top" Width="97" Height="38" Background="Red" Foreground="#FF000033" FontWeight="Bold" Click="btnSalir_Click"/>
+
     </Grid>
 </Window>

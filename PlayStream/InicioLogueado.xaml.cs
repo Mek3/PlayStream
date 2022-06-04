@@ -24,9 +24,30 @@ namespace PlayStream
             InitializeComponent();
         }
 
-        private void btnVolver_Click(object sender, RoutedEventArgs e)
+        private void btnPeliculas_Click(object sender, RoutedEventArgs e)
         {
+            framePrincipal.Navigate(new Peliculas());
+        }
 
+        private void btnPagina1_Click(object sender, RoutedEventArgs e)
+        {
+            framePrincipal.Navigate(new Series());
+        }
+
+        private void BtnPerfil_Click(object sender, RoutedEventArgs e)
+        {
+            framePrincipal.Navigate(new Perfil());
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult res = MessageBox.Show("¿Estás seguro que deseas salir ? ", "Atención",
+
+            MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (res == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

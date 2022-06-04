@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlayStream"
         mc:Ignorable="d"
-        Title="" Height="450" Width="800">
+        Title="" Height="450" Width="800" Icon="Logo.png">
     <Grid RenderTransformOrigin="0.839,0.502">
         <Label Content="PlayStream" Height="69"  Width="246" HorizontalAlignment="Left"  Foreground="Red" FontWeight="Bold" FontSize="30" Margin="10,16,0,349" />
         <Button x:Name="btnIniciarSesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="592,16,0,0"
