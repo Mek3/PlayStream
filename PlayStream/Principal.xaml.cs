@@ -35,5 +35,12 @@ namespace PlayStream
                 Application.Current.Shutdown();
             }
         }
+
+        private void btnIniciarSesion_Click(object sender, RoutedEventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Close();
+        }
     }
 }

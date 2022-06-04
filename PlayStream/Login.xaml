@@ -1,0 +1,19 @@
+﻿<Window x:Class="PlayStream.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PlayStream"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800" Background="Black">
+    <Grid>
+        <TextBox HorizontalAlignment="Left" Margin="289,73,0,0" TextWrapping="Wrap" Text="Correo" VerticalAlignment="Top" Width="182" Height="32"/>
+        <TextBox HorizontalAlignment="Left" Margin="289,133,0,0" TextWrapping="Wrap" Text="Contraseña" VerticalAlignment="Top" Width="182" Height="32"/>
+        <Button Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="324,199,0,0" VerticalAlignment="Top" Height="29" Width="118" FontSize="16" Click="Button_Click_1"/>
+        <Label Content="" HorizontalAlignment="Left" Margin="291,250,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+        <Button Content="Volver al inicio" HorizontalAlignment="Left" Margin="60,372,0,0" VerticalAlignment="Top" FontSize="16" Width="138" Height="37" Click="Button_Click"/>
+        <Label Content="Crear una cuenta" HorizontalAlignment="Left" Margin="303,304,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20" RenderTransformOrigin="0.592,0.537"/>
+        <Label Content="¿Has olvidado la contraseña?" HorizontalAlignment="Center" Margin="0,262,0,0" VerticalAlignment="Top" Foreground="White" FontSize="20"/>
+
+    </Grid>
+</Window>
