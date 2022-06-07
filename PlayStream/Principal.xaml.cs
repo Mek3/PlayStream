@@ -42,6 +42,7 @@ namespace PlayStream
         {
             InicioAdmin inicio = new InicioAdmin();
             inicio.Show();
+           
         }
 
         private void btnIniciarSesionUsuario_Click(object sender, RoutedEventArgs e)

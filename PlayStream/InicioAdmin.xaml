@@ -5,13 +5,28 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlayStream"
         mc:Ignorable="d"
-        Title="Inicio" Height="450" Width="800" Icon="Logo.png">
-    <Grid>
+        Title="Inicio" Height="486.817" Width="1000.449" Icon="Logo.png" Loaded="Window_Loaded">
+    <Window.Resources>
+        <CollectionViewSource x:Key="peliculaViewSource" d:DesignSource="{d:DesignInstance {x:Type local:Pelicula}, CreateList=True}"/>
+    </Window.Resources>
+    <Grid DataContext="{StaticResource peliculaViewSource}" Margin="0,0,3.2,-0.4">
         <Label Content="PlayStream"  Width="168" HorizontalAlignment="Left"  Foreground="Red" FontWeight="Bold" FontSize="30" Margin="10,0,0,334" RenderTransformOrigin="0.532,-0.047" />
 
 
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="677,372,0,0"
+        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="863,410,0,0"
             VerticalAlignment="Top" Width="97" Height="38" Background="Red" Foreground="#FF000033" FontWeight="Bold" Click="btnSalir_Click"/>
+        <DataGrid x:Name="peliculaDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,117,224,44" 
+                  RowDetailsVisibilityMode="VisibleWhenSelected" FontSize="14" FontFamily="Verdana" IsReadOnly="True" SelectionChanged="peliculaDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn x:Name="idColumn" Binding="{Binding id}" Header="Id" Width="Auto"/>
+                <DataGridTextColumn x:Name="tituloColumn" Binding="{Binding titulo}" Header="Titulo" Width="Auto"/>
+                <DataGridTextColumn x:Name="descripcionColumn" Binding="{Binding descripcion}" Header="Descripcion" Width="Auto"/>
+                <DataGridTextColumn x:Name="directorColumn" Binding="{Binding director}" Header="Director" Width="Auto"/>
+                <DataGridTextColumn x:Name="generoColumn" Binding="{Binding Genero}" Header="Genero" Width="Auto"/>
+                <DataGridTextColumn x:Name="trailerColumn" Binding="{Binding trailer}" Header="Trailer" Width="Auto"/>
+                <DataGridTextColumn x:Name="enlacePeliculaColumn" Binding="{Binding enlacePelicula}" Header="enlace Pelicula" Width="SizeToHeader"/>
+            </DataGrid.Columns>
+        </DataGrid>
 
     </Grid>
 </Window>
