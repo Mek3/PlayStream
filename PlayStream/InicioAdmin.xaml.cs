@@ -159,28 +159,30 @@ namespace PlayStream
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            /*Producto p = (Producto)gridListado.SelectedItem;
+            Pelicula p = (Pelicula)peliculaDataGrid.SelectedItem;
             MessageBoxResult res =
-                MessageBox.Show("¿Está seguro que desea borrar el producto '"
-                                + p.Nombre + "'?", "Atención!",
+                MessageBox.Show("¿Está seguro que desea borrar la pelicula '"
+                                + p.titulo + "'?", "Atención!",
                                 MessageBoxButton.YesNo, MessageBoxImage.Question);
 
             if (res == MessageBoxResult.Yes)
             {
                 try
                 {
-                    db.Productos.Remove(p);
+                    db.Peliculas.Remove(p);
                     db.SaveChanges();
 
-                    MessageBox.Show("Producto '" + p.Nombre + "' eliminado correctamente.",
+                    MessageBox.Show("Pelicula '" + p.titulo + "' eliminada correctamente.",
                                      "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error al eliminar un producto. Causa: " + ex.Message,
+                    MessageBox.Show("Error al eliminar la pelicula '"
+                                + p.titulo + "' . Causa: " + ex.Message,
                                      "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
-                }*/
+                }
             }
+        }
 
         private void btnVolverEdit_Click(object sender, RoutedEventArgs e)
         {
