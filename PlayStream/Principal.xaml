@@ -8,9 +8,11 @@
         Title="" Height="450" Width="800" Icon="Logo.png">
     <Grid RenderTransformOrigin="0.839,0.502">
         <Label Content="PlayStream" Height="69"  Width="246" HorizontalAlignment="Left"  Foreground="Red" FontWeight="Bold" FontSize="30" Margin="10,16,0,349" />
-        <Button x:Name="btnIniciarSesion" Content="Iniciar Sesión" HorizontalAlignment="Left" Margin="592,16,0,0"
-            VerticalAlignment="Top" Width="182" Height="69" Background="White" Foreground="Red" FontWeight="Bold" FontSize="20" Click="btnIniciarSesion_Click"/>
+        <Button x:Name="btnIniciarSesionUsuario" Content="Iniciar Sesión Usuario" HorizontalAlignment="Left" Margin="94,168,0,0"
+            VerticalAlignment="Top" Width="237" Height="69" Background="White" Foreground="Red" FontWeight="Bold" FontSize="20" Click="btnIniciarSesionUsuario_Click"/>
         <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="677,372,0,0"
             VerticalAlignment="Top" Width="97" Height="38" Background="Red" Foreground="#FF000033" FontWeight="Bold" Click="btnSalir_Click"/>
+        <Button x:Name="btnIniciarSesionAdmin" Content="Iniciar Sesión Admin" HorizontalAlignment="Left" Margin="421,168,0,0"
+            VerticalAlignment="Top" Width="278" Height="69" Background="White" Foreground="Red" FontWeight="Bold" FontSize="20" Click="btnIniciarSesionAdmin_Click"/>
     </Grid>
 </Window>

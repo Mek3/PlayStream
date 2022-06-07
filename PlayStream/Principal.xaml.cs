@@ -36,11 +36,18 @@ namespace PlayStream
             }
         }
 
-        private void btnIniciarSesion_Click(object sender, RoutedEventArgs e)
+        
+
+        private void btnIniciarSesionAdmin_Click(object sender, RoutedEventArgs e)
         {
-            Login login = new Login();
-            login.Show();
-            this.Close();
+            InicioAdmin inicio = new InicioAdmin();
+            inicio.Show();
+        }
+
+        private void btnIniciarSesionUsuario_Click(object sender, RoutedEventArgs e)
+        {
+            InicioUsuario inicio = new InicioUsuario();
+            inicio.Show();
         }
     }
 }

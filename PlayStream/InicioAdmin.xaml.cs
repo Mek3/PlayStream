@@ -15,28 +15,28 @@ using System.Windows.Shapes;
 namespace PlayStream
 {
     /// <summary>
-    /// Lógica de interacción para Login.xaml
+    /// Lógica de interacción para InicioLogueado.xaml
     /// </summary>
-    public partial class Login : Window
+    public partial class InicioAdmin : Window
     {
-        public Login()
+        public InicioAdmin()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Principal p = new Principal();
-            p.Show();
+       
 
-            this.Close();
-        }
+       
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
-            InicioLogueado l = new InicioLogueado();    
-            l.Show();
-            this.Close();
+            MessageBoxResult res = MessageBox.Show("¿Estás seguro que deseas salir ? ", "Atención",
+
+            MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (res == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

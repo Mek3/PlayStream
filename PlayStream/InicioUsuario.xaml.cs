@@ -17,27 +17,16 @@ namespace PlayStream
     /// <summary>
     /// Lógica de interacción para InicioLogueado.xaml
     /// </summary>
-    public partial class InicioLogueado : Window
+    public partial class InicioUsuario : Window
     {
-        public InicioLogueado()
+        public InicioUsuario()
         {
             InitializeComponent();
         }
 
-        private void btnPeliculas_Click(object sender, RoutedEventArgs e)
-        {
-            framePrincipal.Navigate(new Peliculas());
-        }
+       
 
-        private void btnPagina1_Click(object sender, RoutedEventArgs e)
-        {
-            framePrincipal.Navigate(new Series());
-        }
-
-        private void BtnPerfil_Click(object sender, RoutedEventArgs e)
-        {
-            framePrincipal.Navigate(new Perfil());
-        }
+       
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
