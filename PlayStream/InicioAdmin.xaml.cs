@@ -53,5 +53,177 @@ namespace PlayStream
         {
 
         }
+
+        public void btnDetail_Click(object sender, EventArgs e)
+        {
+            Pelicula p = (Pelicula)peliculaDataGrid.SelectedItem;
+            lblTituloDetalle.Content = "Detalle de la pelicula: '" +
+            p.titulo + "'";
+            peliculaDataGrid.Visibility = Visibility.Hidden;
+            gridCajaDetalle.Margin = new Thickness(5, 55, 5, 4);
+            gridCajaDetalle.Visibility = Visibility.Visible;
+        }
+
+        private void btnVolverDetalle_Click(object sender, RoutedEventArgs e)
+        {
+            gridCajaDetalle.Margin = new Thickness(825, 55, -650, 5);
+            gridCajaDetalle.Visibility = Visibility.Hidden;
+            peliculaDataGrid.Visibility = Visibility.Visible;
+        }
+
+        private void btnNuevo_Click(object sender, RoutedEventArgs e)
+        {
+           /* limpiarFormNuevo();
+            gridListado.Visibility = Visibility.Hidden;
+            btnNuevo.Visibility = Visibility.Hidden;
+            gridCajaNuevo.Margin = new Thickness(5, 55, 5, 4);
+            gridCajaNuevo.Visibility = Visibility.Visible;
+            rellenarComboCategorias(slctCategorias);*/
+        }
+
+        private void btnVolverNuevo_Click(object sender, RoutedEventArgs e)
+        {
+            mostrarListado();
+        }
+
+        private void mostrarListado()
+        {
+          /*  gridCajaNuevo.Margin = new Thickness(5, -393, 3.6, 453);
+            gridCajaNuevo.Visibility = Visibility.Hidden;
+            gridListado.Visibility = Visibility.Visible;
+            btnNuevo.Visibility = Visibility.Visible;*/
+        }
+
+        private void btnAddNuevo_Click(object sender, RoutedEventArgs e)
+        {
+          /*  Producto nuevo = new Producto();
+
+            try
+            {
+
+                /*do
+                {*/
+          /*
+                int i = 0;
+                double p = 0;
+                string id = idTextBox1.Text;
+                string precio = precioTextBox1.Text;
+                string nombre = nombreTextBox1.Text;
+                string descripcion = descripciónTextBox1.Text;
+
+                if (!precio.Equals("") && id != "" &&
+                    descripcion != "" && precio != "")
+                {
+                    if (int.TryParse(id, out i) && double.TryParse(precio, out p))
+                    {
+
+                        nuevo.Id = Convert.ToInt32(id);
+                        nuevo.Precio = Convert.ToDouble(precio);
+                        nuevo.Categoría = Convert.ToInt32(slctCategorias.SelectedValue.ToString());
+                        nuevo.Nombre = nombre;
+                        nuevo.Descripción = descripcion;
+
+                        db.Productos.Add(nuevo);
+                        db.SaveChanges();
+
+                        MessageBox.Show("Producto '" + nuevo.Nombre + "' añadido correctamente.",
+                        "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        mostrarListado();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Revisa el campo precio e id, deben ser número" +
+                                        " Precio(decimal) y Id(entero).",
+                                        "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Ninguno de los campos puede quedar vacío.", "Atención!",
+                                    MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+
+
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al añadir un nuevo producto. Causa: " + ex.Message,
+                            "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }*/
+
+        }
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            /*Producto p = (Producto)gridListado.SelectedItem;
+            MessageBoxResult res =
+                MessageBox.Show("¿Está seguro que desea borrar el producto '"
+                                + p.Nombre + "'?", "Atención!",
+                                MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+            if (res == MessageBoxResult.Yes)
+            {
+                try
+                {
+                    db.Productos.Remove(p);
+                    db.SaveChanges();
+
+                    MessageBox.Show("Producto '" + p.Nombre + "' eliminado correctamente.",
+                                     "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar un producto. Causa: " + ex.Message,
+                                     "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }*/
+            }
+
+        private void btnVolverEdit_Click(object sender, RoutedEventArgs e)
+        {
+           // volverDesdeEdit();
+        }
+        private void volverDesdeEdit()
+        {
+           /* gridCajaEditar.Margin = new Thickness(5, 432, 3.6, -372);
+            gridCajaEditar.Visibility = Visibility.Hidden;
+            gridListado.Visibility = Visibility.Visible;
+            btnNuevo.Visibility = Visibility.Visible;*/
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            /*gridListado.Visibility = Visibility.Hidden;
+            btnNuevo.Visibility = Visibility.Hidden;
+            gridCajaEditar.Margin = new Thickness(5, 55, 5, 4);
+            gridCajaEditar.Visibility = Visibility.Visible;
+            rellenarComboCategorias(slctCategoriasEdit);*/
+        }
+
+        private void btnEditProd_Click(object sender, RoutedEventArgs e)
+        {
+            //TODO: verificar que los datos del formulario son correctos
+           /* Producto p = (Producto)gridListado.SelectedItem;
+            try
+            {
+                db.SaveChanges();
+                volverDesdeEdit();
+                MessageBox.Show("Producto '" + p.Nombre + "' modificado correctamente.",
+                        "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar un producto. Causa:" +
+                ex.Message, "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }*/
+        }
+
     }
 }
