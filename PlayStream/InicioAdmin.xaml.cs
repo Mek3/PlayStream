@@ -62,6 +62,10 @@ namespace PlayStream
             peliculaDataGrid.Visibility = Visibility.Hidden;
             gridCajaDetalle.Margin = new Thickness(5, 55, 5, 4);
             gridCajaDetalle.Visibility = Visibility.Visible;
+            btnNuevo.Visibility = Visibility.Hidden;
+            btnSalir.Visibility = Visibility.Hidden;
+
+
         }
 
         private void btnVolverDetalle_Click(object sender, RoutedEventArgs e)
@@ -69,6 +73,9 @@ namespace PlayStream
             gridCajaDetalle.Margin = new Thickness(825, 55, -650, 5);
             gridCajaDetalle.Visibility = Visibility.Hidden;
             peliculaDataGrid.Visibility = Visibility.Visible;
+            btnNuevo.Visibility = Visibility.Visible;
+            btnSalir.Visibility = Visibility.Visible;
+
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
@@ -78,6 +85,8 @@ namespace PlayStream
             btnNuevo.Visibility = Visibility.Hidden;
             gridCajaNuevo.Margin = new Thickness(5, 55, 5, 4);
             gridCajaNuevo.Visibility = Visibility.Visible;
+            btnSalir.Visibility = Visibility.Hidden;
+
            // rellenarComboCategorias(slctCategorias);*
         }
 
@@ -92,6 +101,7 @@ namespace PlayStream
             gridCajaNuevo.Visibility = Visibility.Hidden;
             peliculaDataGrid.Visibility = Visibility.Visible;
             btnNuevo.Visibility = Visibility.Visible;
+            btnSalir.Visibility = Visibility.Visible;
         }
 
         private void btnAddNuevo_Click(object sender, RoutedEventArgs e)
@@ -100,15 +110,8 @@ namespace PlayStream
 
             try
             {
-
-                /*do
-                {*/
-          
-                int i = 0;
-                double p = 0;
                 string titulo = tituloTextBox1.Text;
                 string descripcion = descripcionTextBox1.Text;
-                // string id = idTextBox1.Text;
                 string director = directorTextBox1.Text;
                 string genero = generoTextBox1.Text;
                 string trailer = trailerTextBox1.Text;
@@ -134,20 +137,12 @@ namespace PlayStream
                         "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         mostrarListado();
-                 
                 }
                 else
                 {
                     MessageBox.Show("Ninguno de los campos puede quedar vacío.", "Atención!",
                                     MessageBoxButton.OK, MessageBoxImage.Error);
-
                 }
-
-
-
-
-
-
 
             }
             catch (Exception ex)
@@ -186,41 +181,43 @@ namespace PlayStream
 
         private void btnVolverEdit_Click(object sender, RoutedEventArgs e)
         {
-           // volverDesdeEdit();
+            volverDesdeEdit();
         }
         private void volverDesdeEdit()
         {
-           /* gridCajaEditar.Margin = new Thickness(5, 432, 3.6, -372);
+            gridCajaEditar.Margin = new Thickness(5, 432, 3.6, -372);
             gridCajaEditar.Visibility = Visibility.Hidden;
-            gridListado.Visibility = Visibility.Visible;
-            btnNuevo.Visibility = Visibility.Visible;*/
+            peliculaDataGrid.Visibility = Visibility.Visible;
+            btnSalir.Visibility = Visibility.Visible;
+            btnNuevo.Visibility = Visibility.Visible;
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
         {
-            /*gridListado.Visibility = Visibility.Hidden;
+            peliculaDataGrid.Visibility = Visibility.Hidden;
             btnNuevo.Visibility = Visibility.Hidden;
             gridCajaEditar.Margin = new Thickness(5, 55, 5, 4);
             gridCajaEditar.Visibility = Visibility.Visible;
-            rellenarComboCategorias(slctCategoriasEdit);*/
+            btnSalir.Visibility = Visibility.Hidden;
+
         }
 
         private void btnEditProd_Click(object sender, RoutedEventArgs e)
         {
             //TODO: verificar que los datos del formulario son correctos
-           /* Producto p = (Producto)gridListado.SelectedItem;
+            Pelicula p = (Pelicula)peliculaDataGrid.SelectedItem;
             try
             {
                 db.SaveChanges();
                 volverDesdeEdit();
-                MessageBox.Show("Producto '" + p.Nombre + "' modificado correctamente.",
+                MessageBox.Show("Pelicula '" + p.titulo + "' editada correctamente.",
                         "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error al modificar un producto. Causa:" +
+                MessageBox.Show("Error al editar la pelicula  '" + p.titulo + "' . Causa:" +
                 ex.Message, "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }*/
+            }
         }
 
     }
