@@ -73,12 +73,12 @@ namespace PlayStream
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-           /* limpiarFormNuevo();
-            gridListado.Visibility = Visibility.Hidden;
+            //limpiarFormNuevo();
+            peliculaDataGrid.Visibility = Visibility.Hidden;
             btnNuevo.Visibility = Visibility.Hidden;
             gridCajaNuevo.Margin = new Thickness(5, 55, 5, 4);
             gridCajaNuevo.Visibility = Visibility.Visible;
-            rellenarComboCategorias(slctCategorias);*/
+           // rellenarComboCategorias(slctCategorias);*
         }
 
         private void btnVolverNuevo_Click(object sender, RoutedEventArgs e)
@@ -88,57 +88,53 @@ namespace PlayStream
 
         private void mostrarListado()
         {
-          /*  gridCajaNuevo.Margin = new Thickness(5, -393, 3.6, 453);
+            gridCajaNuevo.Margin = new Thickness(5, -393, 3.6, 453);
             gridCajaNuevo.Visibility = Visibility.Hidden;
-            gridListado.Visibility = Visibility.Visible;
-            btnNuevo.Visibility = Visibility.Visible;*/
+            peliculaDataGrid.Visibility = Visibility.Visible;
+            btnNuevo.Visibility = Visibility.Visible;
         }
 
         private void btnAddNuevo_Click(object sender, RoutedEventArgs e)
         {
-          /*  Producto nuevo = new Producto();
+           Pelicula nuevaPelicula = new Pelicula();
 
             try
             {
 
                 /*do
                 {*/
-          /*
+          
                 int i = 0;
                 double p = 0;
-                string id = idTextBox1.Text;
-                string precio = precioTextBox1.Text;
-                string nombre = nombreTextBox1.Text;
-                string descripcion = descripciónTextBox1.Text;
+                string titulo = tituloTextBox1.Text;
+                string descripcion = descripcionTextBox1.Text;
+                // string id = idTextBox1.Text;
+                string director = directorTextBox1.Text;
+                string genero = generoTextBox1.Text;
+                string trailer = trailerTextBox1.Text;
+                string enlacepelicula = enlacePeliculaTextBox1.Text;
 
-                if (!precio.Equals("") && id != "" &&
-                    descripcion != "" && precio != "")
+                if (!titulo.Equals("") && descripcion != "" && titulo != "" &&
+                    !descripcion.Equals("") && descripcion != "" && descripcion != "" &&
+                    !director.Equals("") && director != "" && director != "" &&
+                    !genero.Equals("") && genero != "" && genero != "")
                 {
-                    if (int.TryParse(id, out i) && double.TryParse(precio, out p))
-                    {
 
-                        nuevo.Id = Convert.ToInt32(id);
-                        nuevo.Precio = Convert.ToDouble(precio);
-                        nuevo.Categoría = Convert.ToInt32(slctCategorias.SelectedValue.ToString());
-                        nuevo.Nombre = nombre;
-                        nuevo.Descripción = descripcion;
+                    nuevaPelicula.titulo = titulo;
+                    nuevaPelicula.descripcion = descripcion;
+                    nuevaPelicula.director = director;
+                    nuevaPelicula.Genero = genero;
+                    nuevaPelicula.trailer = trailer;
+                    nuevaPelicula.enlacePelicula = enlacepelicula;
 
-                        db.Productos.Add(nuevo);
+                        db.Peliculas.Add(nuevaPelicula);
                         db.SaveChanges();
 
-                        MessageBox.Show("Producto '" + nuevo.Nombre + "' añadido correctamente.",
+                        MessageBox.Show("Pelicula '" + nuevaPelicula.titulo + "' añadida correctamente.",
                         "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         mostrarListado();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Revisa el campo precio e id, deben ser número" +
-                                        " Precio(decimal) y Id(entero).",
-                                        "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
-
-
+                 
                 }
                 else
                 {
@@ -158,7 +154,7 @@ namespace PlayStream
             {
                 MessageBox.Show("Error al añadir un nuevo producto. Causa: " + ex.Message,
                             "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
-            }*/
+            }
 
         }
         private void btnDelete_Click(object sender, RoutedEventArgs e)

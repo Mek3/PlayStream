@@ -110,5 +110,54 @@
             </Grid>
 
         </Grid>
+
+        <Grid x:Name="gridCajaNuevo" Margin="10,-449,-2,509"
+            Background="White">
+            <Label x:Name="lblTituloNuevo" Content="Añadir un nuevo producto"
+                   HorizontalAlignment="Left" Margin="10,10,0,0"
+            VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+            <Button x:Name="btnVolverNuevo" Content="Volver"
+            HorizontalAlignment="Left" Margin="695,320,0,0"
+            VerticalAlignment="Top" Background="Red" Foreground="#000033"
+            Width="74" Height="30" FontFamily="Verdana" FontSize="12"
+            FontWeight="Bold" Click="btnVolverNuevo_Click"/>
+
+            <Button x:Name="btnAddNuevo" Content="Añadir"
+                        HorizontalAlignment="Left" Margin="600,320,0,0"
+                        VerticalAlignment="Top" Background="LightBlue"
+                        Foreground="#000033" Width="75" Height="30"
+                        FontFamily="Verdana" FontSize="12" FontWeight="Bold"
+                        Click="btnAddNuevo_Click"/>
+            <Grid x:Name="grid2" HorizontalAlignment="Left" Margin="82,76,0,0" VerticalAlignment="Top" Width="501">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Label Content="Titulo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="tituloTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="350"/>
+                <Label Content="Descripcion:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="descripcionTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1"  VerticalAlignment="Center" Width="350"/>
+                <Label Content="Director:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="directorTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="350"/>
+                <Label Content="Genero:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="generoTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3"  VerticalAlignment="Center" Width="350"/>
+                <Label Content="Trailer:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="trailerTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" VerticalAlignment="Center" Width="350"/>
+                <Label Content="Enlace Pelicula:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120"/>
+                <TextBox x:Name="enlacePeliculaTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5"  VerticalAlignment="Center" Width="350"/>
+            </Grid>
+
+
+        </Grid>
+        
     </Grid>
 </Window>
