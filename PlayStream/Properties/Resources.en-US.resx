@@ -121,72 +121,72 @@
     <value>Aceptar</value>
   </data>
   <data name="anyadir" xml:space="preserve">
-    <value>Añadir</value>
+    <value>Add</value>
   </data>
   <data name="AnyadirNuevaPelicula" xml:space="preserve">
-    <value>Añadir una nueva pelicula</value>
+    <value>Add a new movie</value>
   </data>
   <data name="btnSalir" xml:space="preserve">
-    <value>Salir</value>
+    <value>Close</value>
   </data>
   <data name="cambiarIdioma" xml:space="preserve">
-    <value>Cambiar idioma</value>
+    <value>Change language</value>
   </data>
   <data name="cancelar" xml:space="preserve">
-    <value>Cancelar</value>
+    <value>Cancel</value>
   </data>
   <data name="descripcion" xml:space="preserve">
-    <value>Descricpion</value>
+    <value>Descricption</value>
   </data>
   <data name="director" xml:space="preserve">
     <value>Director</value>
   </data>
   <data name="enlacePelicula" xml:space="preserve">
-    <value>Enlace Pelicula</value>
+    <value>Link Movie</value>
   </data>
   <data name="espanol" xml:space="preserve">
-    <value>Español</value>
+    <value>Spanish</value>
   </data>
   <data name="generarPDF" xml:space="preserve">
-    <value>Generar PDF</value>
+    <value>Generate PDF</value>
   </data>
   <data name="genero" xml:space="preserve">
-    <value>Genero</value>
+    <value>Gender</value>
   </data>
   <data name="idioma" xml:space="preserve">
-    <value>Idioma</value>
+    <value>Language</value>
   </data>
   <data name="ingles" xml:space="preserve">
-    <value>Inglés</value>
+    <value>English</value>
   </data>
   <data name="JSONpeliculas" xml:space="preserve">
-    <value>Almacén JSON Peliculas</value>
+    <value>JSON movie store</value>
   </data>
   <data name="lblDetallePelicula" xml:space="preserve">
-    <value>Detalles de la pelicula</value>
+    <value>Detail of a movie</value>
   </data>
   <data name="lblTituloEditar" xml:space="preserve">
-    <value>Modificación de un producto</value>
+    <value>Modification of a movie</value>
   </data>
   <data name="modificar" xml:space="preserve">
-    <value>Modificar</value>
+    <value>Modify</value>
   </data>
   <data name="peliculasEnAlmacen" xml:space="preserve">
-    <value>Peliculas en almacén</value>
+    <value>Films in stock</value>
   </data>
   <data name="poblarBD" xml:space="preserve">
-    <value>Poblar BD</value>
+    <value>Fill DB</value>
   </data>
   <data name="titulo" xml:space="preserve">
-    <value>Titulo</value>
+    <value>Title</value>
   </data>
   <data name="trailer" xml:space="preserve">
     <value>Trailer</value>
   </data>
   <data name="VaciarBD" xml:space="preserve">
-    <value>Borrar todo</value>
+    <value>Delete all</value>
   </data>
   <data name="volver" xml:space="preserve">
-    <value>Volver</value>
+    <value>Return</value>
   </data>
 </root>

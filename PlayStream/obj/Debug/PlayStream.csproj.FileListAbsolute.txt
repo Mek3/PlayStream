@@ -31,3 +31,11 @@ C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\PdfSharp.Charting.xml
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\de\PdfSharp.resources.dll
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\de\PdfSharp.Charting.resources.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\en-US\PlayStream.resources.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\es-ES\PlayStream.resources.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\PlayStream.Properties.Resources.en-US.resources
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\PlayStream.Properties.Resources.es-ES.resources
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\en-US\PlayStream.resources.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\es-ES\PlayStream.resources.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\CambiarIdioma.g.cs
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\CambiarIdioma.baml

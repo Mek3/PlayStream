@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PlayStream"
+        xmlns:p="clr-namespace:PlayStream.Properties"
         mc:Ignorable="d"
         Title="Inicio" Height="486.817" Width="807.668" Icon="Logo.png" Loaded="Window_Loaded">
     <Window.Resources>
@@ -18,24 +19,24 @@
             <StackPanel Width="77" Height="30" Orientation="Horizontal">
                 <Image Source="Resources/add.jpg" Height="20"></Image>
                 <TextBlock VerticalAlignment="Center" FontFamily="Verdana"
-            FontWeight="Bold" FontSize="14">Añadir</TextBlock>
+            FontWeight="Bold" FontSize="14" Text="{x:Static p:Resources.anyadir}"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="JSONpeliculas" Content="Almacen JSON Peliculas" HorizontalAlignment="Left" Margin="515,10,0,0"
-                VerticalAlignment="Top" Width="145" Height="40" Click="JSONpeliculas_Click" FontWeight="Bold"/>
+        <Button x:Name="JSONpeliculas" Content="{x:Static p:Resources.JSONpeliculas}" HorizontalAlignment="Left" Margin="482,10,0,0"
+                VerticalAlignment="Top" Width="178" Height="40" Click="JSONpeliculas_Click" FontWeight="Bold" FontSize="14"/>
 
 
-        <Button x:Name="btnSalir" Content="Salir" HorizontalAlignment="Left" Margin="687,384,0,0"
-            VerticalAlignment="Top" Width="97" Height="38" Background="Red" Foreground="#FF000033" FontWeight="Bold" Click="btnSalir_Click"/>
+        <Button x:Name="btnSalir" Content="{x:Static p:Resources.btnSalir}"  HorizontalAlignment="Left" Margin="687,384,0,0"
+            VerticalAlignment="Top" Width="97" Height="38" Background="Red" Foreground="#FF000033" FontWeight="Bold" Click="btnSalir_Click" FontSize="14"/>
 
         <DataGrid x:Name="peliculaDataGrid" AutoGenerateColumns="False" EnableRowVirtualization="True" ItemsSource="{Binding}" Margin="10,79,117,65" 
                   RowDetailsVisibilityMode="VisibleWhenSelected" FontSize="14" FontFamily="Verdana" IsReadOnly="True" SelectionChanged="peliculaDataGrid_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn x:Name="idColumn" Binding="{Binding id}" Header="Id" Width="Auto"/>
-                <DataGridTextColumn x:Name="tituloColumn" Binding="{Binding titulo}" Header="Titulo" Width="Auto"/>
-                <DataGridTextColumn x:Name="generoColumn" Binding="{Binding Genero}" Header="Genero" Width="Auto"/>
-                <DataGridTextColumn x:Name="directorColumn" Binding="{Binding director}" Header="Director" Width="Auto"/>
+                <DataGridTextColumn x:Name="tituloColumn" Binding="{Binding titulo}" Header="{x:Static p:Resources.titulo}"  Width="Auto"/>
+                <DataGridTextColumn x:Name="generoColumn" Binding="{Binding Genero}" Header="{x:Static p:Resources.genero}" Width="Auto"/>
+                <DataGridTextColumn x:Name="directorColumn" Binding="{Binding director}" Header="{x:Static p:Resources.director}" Width="Auto"/>
                 <DataGridTemplateColumn Header="" Width="Auto">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
@@ -74,11 +75,11 @@
 
         <Grid x:Name="gridCajaDetalle" Margin="10,-473,-2,533"
             Background="White">
-            <Label x:Name="lblTituloDetalle" Content="Detalles de la pelicula"
+            <Label x:Name="lblTituloDetalle" Content="{x:Static p:Resources.lblDetallePelicula}"
                 HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
                 FontSize="20" FontWeight="Bold"/>
 
-            <Button Content="Volver" HorizontalAlignment="Left"
+            <Button Content="{x:Static p:Resources.volver}" HorizontalAlignment="Left"
                 Margin="695,342,0,0" VerticalAlignment="Top"
                 Background="Red" Foreground="#000033" Width="74" Height="30"
                 FontFamily="Verdana" FontSize="12" FontWeight="Bold" Click="btnVolverDetalle_Click"
@@ -99,17 +100,17 @@
                 </Grid.RowDefinitions>
                 <Label Content="Id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.2,0,3.4" Grid.Row="0" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="34"/>
                 <Label x:Name="idTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="7.4,5.2,0,5.4" Grid.Row="0" Content="{Binding id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Titulo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.6,0,3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="28" Width="61"/>
+                <Label Content="{x:Static p:Resources.titulo}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.6,0,3" Grid.Row="1" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="28" Width="61"/>
                 <Label x:Name="tituloTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="7.4,4.6,0,5" Grid.Row="1" Content="{Binding titulo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Descripcion:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="107"/>
+                <Label Content="{x:Static p:Resources.descripcion}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="2" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="107"/>
                 <Label x:Name="descripcionTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="8.4,5,0,5.6" Grid.Row="2" Content="{Binding descripcion, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Director:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,7.4,0,6.4" Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="80"/>
+                <Label Content="{x:Static p:Resources.director}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,7.4,0,6.4" Grid.Row="3" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="80"/>
                 <Label x:Name="directorTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="8.4,9.4,0,8.4" Grid.Row="3" Content="{Binding director, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Enlace Pelicula:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.6,0,3.2" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Width="133" Height="27"/>
+                <Label Content="{x:Static p:Resources.enlacePelicula}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.6,0,3.2" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Width="133" Height="27"/>
                 <Label x:Name="enlacePeliculaTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="7.4,4.6,0,0" Grid.Row="4" Content="{Binding enlacePelicula, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Top" Width="350"/>
-                <Label Content="Genero:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.8,0,3.8" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="72"/>
+                <Label Content="{x:Static p:Resources.genero}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.8,0,3.8" Grid.Row="5" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="72"/>
                 <Label x:Name="generoTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="7.4,4.8,0,5.8" Grid.Row="5" Content="{Binding Genero, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Trailer:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="6" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="67"/>
+                <Label Content="{x:Static p:Resources.trailer}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="6" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" Width="67"/>
                 <Label x:Name="trailerTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="29" Margin="7.4,0,0,-0.4" Grid.Row="6" Content="{Binding trailer, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Bottom" Width="350"/>
             </Grid>
 
@@ -117,16 +118,16 @@
 
         <Grid x:Name="gridCajaNuevo" Margin="-913,-244,921,304"
             Background="White">
-            <Label x:Name="lblTituloNuevo" Content="Añadir un nuevo producto"
+            <Label x:Name="lblTituloNuevo" Content="{x:Static p:Resources.AnyadirNuevaPelicula}"
                    HorizontalAlignment="Left" Margin="10,10,0,0"
             VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-            <Button x:Name="btnVolverNuevo" Content="Volver"
+            <Button x:Name="btnVolverNuevo" Content="{x:Static p:Resources.volver}"
             HorizontalAlignment="Left" Margin="695,320,0,0"
             VerticalAlignment="Top" Background="Red" Foreground="#000033"
             Width="74" Height="30" FontFamily="Verdana" FontSize="12"
             FontWeight="Bold" Click="btnVolverNuevo_Click"/>
 
-            <Button x:Name="btnAddNuevo" Content="Añadir"
+            <Button x:Name="btnAddNuevo" Content="{x:Static p:Resources.anyadir}"
                         HorizontalAlignment="Left" Margin="600,320,0,0"
                         VerticalAlignment="Top" Background="LightBlue"
                         Foreground="#000033" Width="75" Height="30"
@@ -146,33 +147,33 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Label Content="Titulo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="0" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
+                <Label Content="{x:Static p:Resources.titulo}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="0" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
                 <TextBox x:Name="tituloTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.8,5,-0.2,5.6" Grid.Row="0" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Descripcion:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.4,0,3.2" Grid.Row="1" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
+                <Label Content="{x:Static p:Resources.descripcion}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.4,0,3.2" Grid.Row="1" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
                 <TextBox x:Name="descripcionTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.8,5.4,-0.2,5.2" Grid.Row="1"  VerticalAlignment="Center" Width="350"/>
-                <Label Content="Director:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.8,0,2.8" Grid.Row="2" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="28" />
+                <Label Content="{x:Static p:Resources.director}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,2.8,0,2.8" Grid.Row="2" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="28" />
                 <TextBox x:Name="directorTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="3.8,4.8,-0.2,4.8" Grid.Row="2" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Genero:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.2,0,3.4" Grid.Row="3" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
+                <Label Content="{x:Static p:Resources.genero}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.2,0,3.4" Grid.Row="3" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
                 <TextBox x:Name="generoTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.8,5.2,-0.2,5.4" Grid.Row="3"  VerticalAlignment="Center" Width="350"/>
-                <Label Content="Trailer:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.6,0,3" Grid.Row="4" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
+                <Label Content="{x:Static p:Resources.trailer}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3.6,0,3" Grid.Row="4" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
                 <TextBox x:Name="trailerTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.8,5.6,-0.2,5" Grid.Row="4" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Enlace Pelicula:" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="5" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
+                <Label Content="{x:Static p:Resources.enlacePelicula}" Grid.Column="0" HorizontalAlignment="Left" Margin="3,3,0,3.6" Grid.Row="5" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" Height="27" />
                 <TextBox x:Name="enlacePeliculaTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3.8,5,-0.2,5.6" Grid.Row="5"  VerticalAlignment="Center" Width="350"/>
             </Grid>
         </Grid>
 
         <Grid x:Name="gridCajaEditar" Margin="-6,506,14,-446"
                 Background="White">
-            <Label x:Name="lblTituloEditar" Content="Modificación de un producto" 
+            <Label x:Name="lblTituloEditar" Content="{x:Static p:Resources.lblTituloEditar}"
                    HorizontalAlignment="Left" Margin="10,10,0,0"
                     VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
             <!-- aquí irá el formulario -->
-            <Button x:Name="btnEditProd" Content="Modificar"
+            <Button x:Name="btnEditProd" Content="{x:Static p:Resources.modificar}"
                     HorizontalAlignment="Left" Margin="600,320,0,0"
                     VerticalAlignment="Top" Background="LightBlue"
                     Foreground="#000033" Width="75" Height="30" FontFamily="Verdana"
                     FontSize="12" FontWeight="Bold" Click="btnEditProd_Click"/>
-            <Button x:Name="btnVolverEdit" Content="Volver"
+            <Button x:Name="btnVolverEdit" Content="{x:Static p:Resources.volver}"
                     HorizontalAlignment="Left" Margin="695,320,0,0"
                     VerticalAlignment="Top" Background="Red" Foreground="#000033"
                     Width="74" Height="30" FontFamily="Verdana" FontSize="12"
@@ -193,17 +194,17 @@
                 </Grid.RowDefinitions>
                 <Label Content="id:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="0" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
                 <TextBox x:Name="idTextBox1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="0" Text="{Binding id, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="titulo:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+                <Label Content="{x:Static p:Resources.titulo}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="1" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
                 <TextBox x:Name="tituloTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="1" Text="{Binding titulo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="descripcion:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+                <Label Content="{x:Static p:Resources.descripcion}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="2" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
                 <TextBox x:Name="descripcionTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="2" Text="{Binding descripcion, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="director:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+                <Label Content="{x:Static p:Resources.director}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="3" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
                 <TextBox x:Name="directorTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="3" Text="{Binding director, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="enlace Pelicula:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+                <Label Content="{x:Static p:Resources.enlacePelicula}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="4" VerticalAlignment="Center" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
                 <TextBox x:Name="enlacePeliculaTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="4" Text="{Binding enlacePelicula, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="Genero:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+                <Label Content="{x:Static p:Resources.genero}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="5" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
                 <TextBox x:Name="generoTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="5" Text="{Binding Genero, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
-                <Label Content="trailer:" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
+                <Label Content="{x:Static p:Resources.trailer}" Grid.Column="0" HorizontalAlignment="Left" Margin="3" Grid.Row="6" VerticalAlignment="Center" Width="120" FontWeight="Bold" FontSize="14" FontFamily="Verdana" />
                 <TextBox x:Name="trailerTextBox2" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="3" Grid.Row="6" Text="{Binding trailer, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" VerticalAlignment="Center" Width="350"/>
             </Grid>
 
@@ -213,7 +214,7 @@
 
             <ScrollViewer VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" Margin="0,55,10.4,0">
                 <StackPanel>
-                    <Label x:Name="lblTitulo" Content="Peliculas en almacén"
+                    <Label x:Name="lblTitulo" Content="{x:Static p:Resources.peliculasEnAlmacen}"
                     HorizontalAlignment="Left" Margin="21,10,0,0"
                     VerticalAlignment="Top" FontSize="24"/>
 
@@ -223,13 +224,18 @@
                     Width="779"/>
                 </StackPanel>
             </ScrollViewer>
-            <Button x:Name="btnGenerarPDF" Content="Generar PDF"  Background="Green" Foreground="Black"  FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" Width="157" Height="29" Click="btnGenerarPDF_Click"/>
-            <Button x:Name="btnVolverdesdeJSON" Content="Volver" Background="Red" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="469,12,0,0" VerticalAlignment="Top" Width="104" Height="27" Click="btnVolverdesdeJSON_Click"/>
+            <Button x:Name="btnGenerarPDF" Content="{x:Static p:Resources.generarPDF}"  Background="Green" Foreground="Black"  FontWeight="Bold" HorizontalAlignment="Left" Margin="606,10,0,0" VerticalAlignment="Top" Width="157" Height="29" Click="btnGenerarPDF_Click"/>
+            <Button x:Name="btnVolverdesdeJSON" Content="{x:Static p:Resources.volver}" Background="Red" Foreground="Black" FontWeight="Bold" HorizontalAlignment="Left" Margin="469,12,0,0" VerticalAlignment="Top" Width="104" Height="27" Click="btnVolverdesdeJSON_Click"/>
 
         </Grid>
-        <Button x:Name="VaciarBD" Content="Borrar todo" Background="Black" Foreground="White" HorizontalAlignment="Left" 
-                Margin="699,104,0,0" VerticalAlignment="Top" Width="89" Height="40" Click="VaciarBD_Click" FontWeight="Bold"/>
-        <Button x:Name="poblarBD" Content="PoblarBD"  Background="Green" Foreground="Black"  HorizontalAlignment="Left" Margin="699,183,0,0" VerticalAlignment="Top" Width="85" Height="38" Click="poblarBD_Click" FontWeight="Bold"/>
+        <Button x:Name="VaciarBD" Content="{x:Static p:Resources.VaciarBD}" Background="Black" Foreground="White" HorizontalAlignment="Left" 
+                Margin="699,104,0,0" VerticalAlignment="Top" Width="89" Height="40" Click="VaciarBD_Click" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="poblarBD" Content="{x:Static p:Resources.poblarBD}"  Background="Green" Foreground="Black"  HorizontalAlignment="Left"
+                Margin="699,183,0,0" VerticalAlignment="Top" Width="85" Height="38" Click="poblarBD_Click" FontWeight="Bold" FontSize="14"/>
+
+
+        <Button  x:Name="btnCambiarIdioma"  Content="{x:Static p:Resources.cambiarIdioma}" HorizontalAlignment="Left" Margin="322,13,0,0" VerticalAlignment="Top" Width="134" Height="37" Click="btnCambiarIdioma_Click" FontWeight="Bold" FontSize="14"/>
+
 
     </Grid>
 </Window>

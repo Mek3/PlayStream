@@ -30,15 +30,27 @@ namespace PlayStream
     public partial class InicioAdmin : Window
     {
         PlayStreamEntities db;
+
+        const string LANG_ENG = "en_US";
+        const string LANG_ES = "es_ES";
+
+        System.Windows.Threading.DispatcherTimer dispatcherTimer = new System.Windows.Threading.DispatcherTimer();
+
         public InicioAdmin()
         {
+            Config.GetInstance().Load();
+            cambiaIdioma();
+
             InitializeComponent();
+
+
+            dispatcherTimer.Tick += new EventHandler(manejadorDispatcherTimer);
+
+
             db = new PlayStreamEntities();
             drvJSON provs = new drvJSON();
             provs.origen = "Assets\\movies.json";
-            // C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\Assets\
-            //C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\Assets\movies.json
-            //  provs.origen = "Assets\\movies.json";
+           
             provs.loadData();
             for (int i = 0; i < provs.getTotal(); i++)
             {
@@ -63,8 +75,28 @@ namespace PlayStream
             }
         }
 
+     
+
+        private void cambiaIdioma()
+        {
+
+            var lang = Config.GetInstance().lang;
+            if (lang != null)
+            {
+                System.Threading.Thread.CurrentThread.CurrentCulture =
+                                new System.Globalization.CultureInfo(lang);
+                System.Threading.Thread.CurrentThread.CurrentUICulture =
+                System.Threading.Thread.CurrentThread.CurrentCulture;
+            }
+
+        }
+        private void manejadorDispatcherTimer(object sender, EventArgs e)
+        {
+        }
         private void btnSalir_Click(object sender, RoutedEventArgs e)
         {
+            
+
             MessageBoxResult res = MessageBox.Show("¿Estás seguro que deseas salir ? ", "Atención",
 
             MessageBoxButton.YesNo, MessageBoxImage.Warning);
@@ -114,7 +146,9 @@ namespace PlayStream
         {
              gridCajaNuevo.Margin = new Thickness(5, 55, 5, 4);
              gridCajaNuevo.Visibility = Visibility.Visible;
+             btnAddNuevo.Visibility = Visibility.Visible;
             ocultarListado();
+
 
         }
 
@@ -129,10 +163,10 @@ namespace PlayStream
             btnSalir.Visibility = Visibility.Hidden;
             peliculaDataGrid.Visibility = Visibility.Hidden;
 
-            btnAddNuevo.Visibility = Visibility.Hidden;
             JSONpeliculas.Visibility = Visibility.Hidden;
             VaciarBD.Visibility = Visibility.Hidden;
             poblarBD.Visibility = Visibility.Hidden;
+            btnCambiarIdioma.Visibility = Visibility.Hidden;
         }
 
         private void mostrarListado()
@@ -150,6 +184,7 @@ namespace PlayStream
             VaciarBD.Visibility = Visibility.Visible;
             poblarBD.Visibility = Visibility.Visible;
             GridJSON.Visibility = Visibility.Hidden;
+            btnCambiarIdioma.Visibility = Visibility.Visible;
 
         }
 
@@ -269,9 +304,9 @@ namespace PlayStream
         private void JSONpeliculas_Click(object sender, RoutedEventArgs e)
         {
 
-            peliculaDataGrid.Visibility = Visibility.Hidden;
             btnNuevo.Visibility = Visibility.Hidden;
             GridJSON.Margin = new Thickness(5, 55, 5, 4);
+            GridJSON.Visibility = Visibility.Visible;
             ocultarListado();
 
 
@@ -472,6 +507,14 @@ namespace PlayStream
             private void btnVolverdesdeJSON_Click(object sender, RoutedEventArgs e)
         {
             mostrarListado();
+        }
+
+        private void btnCambiarIdioma_Click(object sender, RoutedEventArgs e)
+        {
+            var dlg = new CambiarIdioma();
+            dlg.ShowDialog();
+
+            cambiaIdioma();
         }
     }
 }
