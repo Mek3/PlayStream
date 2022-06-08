@@ -3,8 +3,10 @@ C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\PlayStream.pdb
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\EntityFramework.dll
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\Newtonsoft.Json.dll
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\EntityFramework.xml
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\Newtonsoft.Json.xml
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\PlayStream.csproj.AssemblyReference.cache
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\InicioUsuario.g.cs
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\InicioAdmin.g.cs
@@ -23,3 +25,9 @@ C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\PlayStream.csproj.CopyComplete
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\PlayStream.exe
 C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\obj\Debug\PlayStream.pdb
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\PdfSharp.Charting.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\PdfSharp.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\PdfSharp.xml
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\PdfSharp.Charting.xml
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\de\PdfSharp.resources.dll
+C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\bin\Debug\de\PdfSharp.Charting.resources.dll

@@ -1,7 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using PdfSharp.Drawing;
+using PdfSharp.Drawing.Layout;
+using PdfSharp.Pdf;
+using PlayStream.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Json;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +20,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace PlayStream
 {
@@ -25,6 +34,30 @@ namespace PlayStream
         {
             InitializeComponent();
             db = new PlayStreamEntities();
+            drvJSON provs = new drvJSON();
+            provs.origen = "Assets\\movies.json";
+            // C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\Assets\
+            //C:\Users\mekmo\OneDrive\Documentos\MasterWeb\Primera parte\DAEE\Práctica final\PlayStream\PlayStream\Assets\movies.json
+            //  provs.origen = "Assets\\movies.json";
+            provs.loadData();
+            for (int i = 0; i < provs.getTotal(); i++)
+            {
+                Label label = new Label()
+                {
+                    Name = "label_" + (i + 1).ToString(),
+                    Width = Double.NaN, //label.Autorize =  true;
+                    Height = 26,
+                    Content = provs.getDato(i)[provs.getKey(0)] + " - "
+                            + provs.getDato(i)[provs.getKey(1)] + " - " 
+                            + provs.getDato(i)[provs.getKey(5)] + " - ",
+
+                    Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0x33)),
+                    Background = new SolidColorBrush(Colors.White),
+                    Margin = new Thickness(50, i * 26, 0, 0)
+                };
+                pnlDatos.Height += 26;
+                pnlDatos.Children.Add(label);
+            }
         }
 
         private void btnSalir_Click(object sender, RoutedEventArgs e)
@@ -38,7 +71,7 @@ namespace PlayStream
             }
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        public void Window_Loaded(object sender, RoutedEventArgs e)
         {
 
             System.Windows.Data.CollectionViewSource peliculaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("peliculaViewSource")));
@@ -218,6 +251,209 @@ namespace PlayStream
                 MessageBox.Show("Error al editar la pelicula  '" + p.titulo + "' . Causa:" +
                 ex.Message, "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+        }
+
+        private void JSONpeliculas_Click(object sender, RoutedEventArgs e)
+        {
+
+            peliculaDataGrid.Visibility = Visibility.Hidden;
+            btnNuevo.Visibility = Visibility.Hidden;
+            GridJSON.Margin = new Thickness(5, 55, 5, 4);
+            btnSalir.Visibility = Visibility.Hidden;
+            generarPeliculasJSON();
+        }
+
+        public void generarPeliculasJSON() 
+        {
+            
+            List<Pelicula> peliculas = new List<Pelicula>();
+            for (int i= 1; i< 150; i++) 
+            {
+                
+
+                Pelicula nuevaPelicula = new Pelicula();
+
+                nuevaPelicula.titulo = "Titulo de la Pelicula " + i;
+                nuevaPelicula.descripcion = "Descripcion de la Pelicula " + i;
+                nuevaPelicula.director = "Director de la Pelicula " + i;
+                nuevaPelicula.Genero = "Genero de la Pelicula " + i;
+                nuevaPelicula.trailer = "Trailer de la Pelicula " + i;
+                nuevaPelicula.enlacePelicula = "Enlace de la Pelicula " + i;
+
+                peliculas.Add(nuevaPelicula);
+
+            }
+
+            var Json = JsonConvert.SerializeObject(peliculas);
+            string path = "Assets\\movies.json";
+            System.IO.File.WriteAllText(path, Json);
+             
+        }
+
+        private void VaciarBD_Click(object sender, RoutedEventArgs e)
+        {
+            vaciarBD();
+            db = new PlayStreamEntities();
+            Window_Loaded(sender, e);
+        }
+
+
+        private void poblarBD_Click(object sender, RoutedEventArgs e)
+        {
+            PoblarBD(db);
+
+        }
+        public void vaciarBD()
+        {
+            try
+            {
+                db.Database.ExecuteSqlCommand("TRUNCATE TABLE [Pelicula]");
+                db.Peliculas.Load();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al vaciar BD. Causa: " + ex.Message,
+                            "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        public void PoblarBD(PlayStreamEntities db)
+        {
+            for (int i = 1; i < 15; i++)
+            {
+                Pelicula nuevaPelicula = new Pelicula();
+
+                nuevaPelicula.titulo = "Titulo de la Pelicula " + i;
+                nuevaPelicula.descripcion = "Descripcion de la Pelicula " + i;
+                nuevaPelicula.director = "Director de la Pelicula " + i;
+                nuevaPelicula.Genero = "Genero de la Pelicula " + i;
+                nuevaPelicula.trailer = "Trailer de la Pelicula " + i;
+                nuevaPelicula.enlacePelicula = "Enlace de la Pelicula " + i;
+
+                try
+                {
+                    db.Peliculas.Add(nuevaPelicula);
+                    db.SaveChanges();
+                    db.Peliculas.Load();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al añadir una nueva pelicula. Causa: " + ex.Message,
+                                "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+            }
+
+        }
+
+        private void btnGenerarPDF_Click(object sender, RoutedEventArgs e)
+        {
+
+            drvJSON datos = new drvJSON();
+            datos.origen = "Assets\\movies.json";
+            datos.loadData();
+
+            PdfDocument document = new PdfDocument();
+            document.Info.Title = "Provincias de España";
+
+            // Page Options
+            PdfPage pdfPage = document.AddPage();
+            pdfPage.Height = 1500;//842
+            pdfPage.Width = 590;
+
+            // Get an XGraphics object for drawing
+            XGraphics graph = XGraphics.FromPdfPage(pdfPage);
+
+            // Text format
+            XStringFormat format = new XStringFormat();
+            format.LineAlignment = XLineAlignment.Near;
+            format.Alignment = XStringAlignment.Near;
+            var tf = new XTextFormatter(graph);
+
+            XFont fontParagraph = new XFont("Arial", 8, XFontStyle.Regular);
+
+            // Row elements
+            int el1_width = 15;
+            int el2_width = 100;//380;
+
+            // page structure options
+            double lineHeight = 20;
+            int marginLeft = 100;//20;
+            int marginTop = 20;
+
+            int el_height = 30;
+            int rect_height = 15;
+
+            int interLine_X_1 = 2;
+
+            int offSetX_1 = el1_width;
+
+            XSolidBrush rect_style1 = new XSolidBrush(XColors.LightGray);
+            XSolidBrush rect_style2 = new XSolidBrush(XColors.Black);
+
+            for (int i = 0; i < datos.getTotal(); i++)
+            {
+                double dist_Y = lineHeight * (i + 1);
+                double dist_Y2 = dist_Y - 2;
+                string provincia = datos.getDato(i)[datos.getKey(1)];
+                string id = datos.getDato(i)[datos.getKey(0)];
+                // header della G
+                if (i == 0)
+                {
+                    graph.DrawRectangle(rect_style2, marginLeft, marginTop, el2_width + el1_width + interLine_X_1, rect_height);
+
+                    tf.DrawString("Id", fontParagraph, XBrushes.White,
+                                    new XRect(marginLeft, marginTop, el1_width, el_height), format);
+
+                    tf.DrawString("Provincia", fontParagraph, XBrushes.White,
+                                    new XRect(marginLeft + offSetX_1 + interLine_X_1, marginTop, el2_width, el_height), format);
+
+                    // stampo il primo elemento insieme all'header
+                    graph.DrawRectangle(rect_style1, marginLeft, dist_Y2 + marginTop, el1_width, rect_height);
+                    tf.DrawString(id, fontParagraph, XBrushes.Black,
+                                    new XRect(marginLeft, dist_Y + marginTop, el1_width, el_height), format);
+
+                    //ELEMENT 2 - BIG 380
+                    graph.DrawRectangle(rect_style1, marginLeft + offSetX_1 + interLine_X_1, dist_Y2 + marginTop, el2_width, rect_height);
+                    tf.DrawString(
+                        provincia,
+                        fontParagraph,
+                        XBrushes.Black,
+                        new XRect(marginLeft + offSetX_1 + interLine_X_1, dist_Y + marginTop, el2_width, el_height),
+                        format);
+                }
+                else
+                {
+
+                    //ELEMENT 1 - SMALL 80
+                    graph.DrawRectangle(rect_style1, marginLeft, marginTop + dist_Y2, el1_width, rect_height);
+                    tf.DrawString(
+
+                        id,
+                        fontParagraph,
+                        XBrushes.Black,
+                        new XRect(marginLeft, marginTop + dist_Y, el1_width, el_height),
+                        format);
+
+                    //ELEMENT 2 - BIG 380
+                    graph.DrawRectangle(rect_style1, marginLeft + offSetX_1 + interLine_X_1, dist_Y2 + marginTop, el2_width, rect_height);
+                    tf.DrawString(
+                        provincia,
+                        fontParagraph,
+                        XBrushes.Black,
+                        new XRect(marginLeft + offSetX_1 + interLine_X_1, marginTop + dist_Y, el2_width, el_height),
+                        format);
+
+                }
+
+            }
+
+            const string filename = "Assets\\movies.pdf"; //"C:\\Users\\mekmo\\OneDrive\\Documentos\\MasterWeb\\DAEE\\Sesion06\\Provincias.pdf";
+
+            document.Save(filename);
+            Process.Start(filename);
+
         }
 
     }
