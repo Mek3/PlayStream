@@ -49,6 +49,9 @@ namespace PlayStream
                     Height = 26,
                     Content = provs.getDato(i)[provs.getKey(0)] + " - "
                             + provs.getDato(i)[provs.getKey(1)] + " - " 
+                            + provs.getDato(i)[provs.getKey(2)] + " - " 
+                            + provs.getDato(i)[provs.getKey(3)] + " - " 
+                            + provs.getDato(i)[provs.getKey(4)] + " - " 
                             + provs.getDato(i)[provs.getKey(5)] + " - ",
 
                     Foreground = new SolidColorBrush(Color.FromRgb(0, 0, 0x33)),
@@ -92,35 +95,27 @@ namespace PlayStream
             Pelicula p = (Pelicula)peliculaDataGrid.SelectedItem;
             lblTituloDetalle.Content = "Detalle de la pelicula: '" +
             p.titulo + "'";
-            peliculaDataGrid.Visibility = Visibility.Hidden;
+           
             gridCajaDetalle.Margin = new Thickness(5, 55, 5, 4);
             gridCajaDetalle.Visibility = Visibility.Visible;
             btnNuevo.Visibility = Visibility.Hidden;
-            btnSalir.Visibility = Visibility.Hidden;
+            ocultarListado();
 
 
         }
 
         private void btnVolverDetalle_Click(object sender, RoutedEventArgs e)
         {
-            gridCajaDetalle.Margin = new Thickness(825, 55, -650, 5);
-            gridCajaDetalle.Visibility = Visibility.Hidden;
-            peliculaDataGrid.Visibility = Visibility.Visible;
-            btnNuevo.Visibility = Visibility.Visible;
-            btnSalir.Visibility = Visibility.Visible;
+            mostrarListado();
 
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
         {
-            //limpiarFormNuevo();
-            peliculaDataGrid.Visibility = Visibility.Hidden;
-            btnNuevo.Visibility = Visibility.Hidden;
-            gridCajaNuevo.Margin = new Thickness(5, 55, 5, 4);
-            gridCajaNuevo.Visibility = Visibility.Visible;
-            btnSalir.Visibility = Visibility.Hidden;
+             gridCajaNuevo.Margin = new Thickness(5, 55, 5, 4);
+             gridCajaNuevo.Visibility = Visibility.Visible;
+            ocultarListado();
 
-           // rellenarComboCategorias(slctCategorias);*
         }
 
         private void btnVolverNuevo_Click(object sender, RoutedEventArgs e)
@@ -128,17 +123,39 @@ namespace PlayStream
             mostrarListado();
         }
 
+        private void ocultarListado()
+        {
+            btnNuevo.Visibility = Visibility.Hidden;
+            btnSalir.Visibility = Visibility.Hidden;
+            peliculaDataGrid.Visibility = Visibility.Hidden;
+
+            btnAddNuevo.Visibility = Visibility.Hidden;
+            JSONpeliculas.Visibility = Visibility.Hidden;
+            VaciarBD.Visibility = Visibility.Hidden;
+            poblarBD.Visibility = Visibility.Hidden;
+        }
+
         private void mostrarListado()
         {
             gridCajaNuevo.Margin = new Thickness(5, -393, 3.6, 453);
             gridCajaNuevo.Visibility = Visibility.Hidden;
+            gridCajaEditar.Visibility = Visibility.Hidden;
+            gridCajaDetalle.Visibility = Visibility.Hidden;
             peliculaDataGrid.Visibility = Visibility.Visible;
             btnNuevo.Visibility = Visibility.Visible;
             btnSalir.Visibility = Visibility.Visible;
+
+            btnAddNuevo.Visibility = Visibility.Visible;
+            JSONpeliculas.Visibility = Visibility.Visible;
+            VaciarBD.Visibility = Visibility.Visible;
+            poblarBD.Visibility = Visibility.Visible;
+            GridJSON.Visibility = Visibility.Hidden;
+
         }
 
         private void btnAddNuevo_Click(object sender, RoutedEventArgs e)
         {
+
            Pelicula nuevaPelicula = new Pelicula();
 
             try
@@ -218,11 +235,7 @@ namespace PlayStream
         }
         private void volverDesdeEdit()
         {
-            gridCajaEditar.Margin = new Thickness(5, 432, 3.6, -372);
-            gridCajaEditar.Visibility = Visibility.Hidden;
-            peliculaDataGrid.Visibility = Visibility.Visible;
-            btnSalir.Visibility = Visibility.Visible;
-            btnNuevo.Visibility = Visibility.Visible;
+            mostrarListado();
         }
 
         private void btnEdit_Click(object sender, RoutedEventArgs e)
@@ -232,7 +245,7 @@ namespace PlayStream
             gridCajaEditar.Margin = new Thickness(5, 55, 5, 4);
             gridCajaEditar.Visibility = Visibility.Visible;
             btnSalir.Visibility = Visibility.Hidden;
-
+            ocultarListado();
         }
 
         private void btnEditProd_Click(object sender, RoutedEventArgs e)
@@ -259,7 +272,9 @@ namespace PlayStream
             peliculaDataGrid.Visibility = Visibility.Hidden;
             btnNuevo.Visibility = Visibility.Hidden;
             GridJSON.Margin = new Thickness(5, 55, 5, 4);
-            btnSalir.Visibility = Visibility.Hidden;
+            ocultarListado();
+
+
             generarPeliculasJSON();
         }
 
@@ -267,10 +282,8 @@ namespace PlayStream
         {
             
             List<Pelicula> peliculas = new List<Pelicula>();
-            for (int i= 1; i< 150; i++) 
+            for (int i= 1; i< 30; i++) 
             {
-                
-
                 Pelicula nuevaPelicula = new Pelicula();
 
                 nuevaPelicula.titulo = "Titulo de la Pelicula " + i;
@@ -456,5 +469,9 @@ namespace PlayStream
 
         }
 
+        private void btnVolverdesdeJSON_Click(object sender, RoutedEventArgs e)
+        {
+            mostrarListado();
+        }
     }
 }

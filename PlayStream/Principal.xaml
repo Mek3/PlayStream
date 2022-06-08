@@ -14,6 +14,5 @@
             VerticalAlignment="Top" Width="97" Height="38" Background="Red" Foreground="#FF000033" FontWeight="Bold" Click="btnSalir_Click"/>
         <Button x:Name="btnIniciarSesionAdmin" Content="Iniciar Sesión Admin" HorizontalAlignment="Left" Margin="421,168,0,0"
             VerticalAlignment="Top" Width="278" Height="69" Background="White" Foreground="Red" FontWeight="Bold" FontSize="20" Click="btnIniciarSesionAdmin_Click"/>
-        <Button x:Name="btnPoblarBD"  Content="Poblar BD" HorizontalAlignment="Left" Margin="564,39,0,0"  Background="White" Foreground="Red" VerticalAlignment="Top" Width="135" Height="46" Click="btnPoblarBD_Click"/>
     </Grid>
 </Window>
