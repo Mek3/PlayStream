@@ -1,0 +1,72 @@
+PlayStream Information: 1 : Config: cargando configuración
+    DateTime=2022-06-08T13:31:56.1768910Z
+PlayStream Information: 1 : Config: idioma leído: ''
+    DateTime=2022-06-08T13:31:56.1768910Z
+PlayStream Information: 1 : Config: cargando configuración
+    DateTime=2022-06-08T13:31:58.3084988Z
+PlayStream Information: 1 : Config: idioma leído: ''
+    DateTime=2022-06-08T13:31:58.3084988Z
+PlayStream Information: 1 : Config: cargando configuración
+    DateTime=2022-06-08T13:45:28.3440951Z
+PlayStream Information: 1 : Config: idioma leído: 'en_US'
+    DateTime=2022-06-08T13:45:28.3440951Z
+PlayStream Information: 1 : Inicio cargando peliculas
+    DateTime=2022-06-08T13:45:29.1454833Z
+PlayStream Information: 1 : Inicio cargando peliculas:  SELECT 
+    [Extent1].[id] AS [id], 
+    [Extent1].[titulo] AS [titulo], 
+    [Extent1].[Genero] AS [Genero], 
+    [Extent1].[descripcion] AS [descripcion], 
+    [Extent1].[director] AS [director], 
+    [Extent1].[trailer] AS [trailer], 
+    [Extent1].[enlacePelicula] AS [enlacePelicula]
+    FROM [dbo].[Pelicula] AS [Extent1]
+    DateTime=2022-06-08T13:45:29.3656593Z
+PlayStream Information: 1 : Config: cargando configuración
+    DateTime=2022-06-08T14:08:06.9663435Z
+PlayStream Information: 1 : Config: idioma leído: 'en_US'
+    DateTime=2022-06-08T14:08:06.9663435Z
+PlayStream Information: 1 : Inicio: cargando datos peliculas
+    DateTime=2022-06-08T14:08:07.3580235Z
+PlayStream Information: 1 : Inicio: cargando peliculas con exito. 
+    DateTime=2022-06-08T14:08:07.5625770Z
+PlayStream Information: 1 : Inicio: tabla vaciado con exito  '
+    DateTime=2022-06-08T14:08:13.8932627Z
+PlayStream Information: 1 : Inicio: cargando datos peliculas
+    DateTime=2022-06-08T14:08:13.8932627Z
+PlayStream Information: 1 : Inicio: cargando peliculas con exito. 
+    DateTime=2022-06-08T14:08:13.9273691Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.6435536Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.6595541Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.6765535Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.6925533Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.7105534Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.7275535Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.7445536Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.7655571Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.7835614Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.8015532Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.8185531Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.8356528Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.8517185Z
+PlayStream Information: 1 : Inicio: tabla llenada con exito  '
+    DateTime=2022-06-08T14:08:14.8677076Z
+PlayStream Information: 1 : Config: cargando configuración
+    DateTime=2022-06-08T14:08:27.2206766Z
+PlayStream Information: 1 : Config: idioma leído: 'en_US'
+    DateTime=2022-06-08T14:08:27.2206766Z
+PlayStream Information: 1 : Inicio: Añadir un anueva pelicula: Pelicula wqdaSC' añadida correctamente.
+    DateTime=2022-06-08T14:08:38.2616327Z

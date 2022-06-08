@@ -12,6 +12,7 @@ namespace PlayStream
     {
         public string lang { get; set; }
 
+        public static TraceSource logger = new TraceSource("PlayStream");
 
         private static Config _instance;
 
@@ -38,8 +39,11 @@ namespace PlayStream
         public void Load()
         {
 
+            logger.TraceEvent(TraceEventType.Information, 1, "Config: cargando configuración");
+
             lang = Read("lang");
 
+            logger.TraceEvent(TraceEventType.Information, 1, "Config: idioma leído: '" + lang + "'");
         }
 
         private string Read(string key) 

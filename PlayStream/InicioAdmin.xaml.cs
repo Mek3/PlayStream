@@ -108,13 +108,22 @@ namespace PlayStream
 
         public void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            try
+            {
+                System.Windows.Data.CollectionViewSource peliculaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("peliculaViewSource")));
+                // Cargar datos estableciendo la propiedad CollectionViewSource.Source:
+                // peliculaViewSource.Source = [origen de datos genérico]
 
-            System.Windows.Data.CollectionViewSource peliculaViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("peliculaViewSource")));
-            // Cargar datos estableciendo la propiedad CollectionViewSource.Source:
-            // peliculaViewSource.Source = [origen de datos genérico]
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: cargando datos peliculas");
 
-            db.Peliculas.Load();
-            peliculaViewSource.Source = db.Peliculas.Local;
+                db.Peliculas.Load();
+                peliculaViewSource.Source = db.Peliculas.Local;
+
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: cargando peliculas con exito. ");
+            }
+            catch (Exception ex) {
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: problemas al cargar datos de peliculas: " + ex.Message.ToString());
+            }
         }
 
         private void peliculaDataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -133,13 +142,11 @@ namespace PlayStream
             btnNuevo.Visibility = Visibility.Hidden;
             ocultarListado();
 
-
         }
 
         private void btnVolverDetalle_Click(object sender, RoutedEventArgs e)
         {
             mostrarListado();
-
         }
 
         private void btnNuevo_Click(object sender, RoutedEventArgs e)
@@ -148,8 +155,6 @@ namespace PlayStream
              gridCajaNuevo.Visibility = Visibility.Visible;
              btnAddNuevo.Visibility = Visibility.Visible;
             ocultarListado();
-
-
         }
 
         private void btnVolverNuevo_Click(object sender, RoutedEventArgs e)
@@ -217,14 +222,19 @@ namespace PlayStream
 
                         db.Peliculas.Add(nuevaPelicula);
                         db.SaveChanges();
+                   
+                    Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: Añadir un anueva pelicula: Pelicula " + nuevaPelicula.titulo + "' añadida correctamente.");
 
-                        MessageBox.Show("Pelicula '" + nuevaPelicula.titulo + "' añadida correctamente.",
+
+                    MessageBox.Show("Pelicula '" + nuevaPelicula.titulo + "' añadida correctamente.",
                         "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         mostrarListado();
                 }
                 else
                 {
+                    Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: Añadir un anueva pelicula: Pelicula Ninguno de los campos puede quedar vacío.");
+
                     MessageBox.Show("Ninguno de los campos puede quedar vacío.", "Atención!",
                                     MessageBoxButton.OK, MessageBoxImage.Error);
                 }
@@ -232,6 +242,8 @@ namespace PlayStream
             }
             catch (Exception ex)
             {
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: Añadir un anueva pelicula: Error al añadir un nuevo producto.Causa: " + ex.Message.ToString());
+
                 MessageBox.Show("Error al añadir un nuevo producto. Causa: " + ex.Message,
                             "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -252,11 +264,15 @@ namespace PlayStream
                     db.Peliculas.Remove(p);
                     db.SaveChanges();
 
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: Añadir un anueva pelicula: Pelicula  "+ p.titulo + " eliminada correctamente.");
                     MessageBox.Show("Pelicula '" + p.titulo + "' eliminada correctamente.",
                                      "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {
+                    Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: Añadir un anueva pelicula: Pelicula Error al eliminar la pelicula "
+                                + p.titulo + "' . Causa: " + ex.Message);
+
                     MessageBox.Show("Error al eliminar la pelicula '"
                                 + p.titulo + "' . Causa: " + ex.Message,
                                      "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -291,11 +307,15 @@ namespace PlayStream
             {
                 db.SaveChanges();
                 volverDesdeEdit();
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: Añadir un anueva pelicula: Pelicula '" + p.titulo + "' editada correctamente.");
+
                 MessageBox.Show("Pelicula '" + p.titulo + "' editada correctamente.",
                         "Atención!", MessageBoxButton.OK, MessageBoxImage.Information);
             }
             catch (Exception ex)
             {
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: Añadir un anueva pelicula: Error al editar la pelicula  '" + p.titulo + "'.Causa:");
+
                 MessageBox.Show("Error al editar la pelicula  '" + p.titulo + "' . Causa:" +
                 ex.Message, "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -357,9 +377,12 @@ namespace PlayStream
             {
                 db.Database.ExecuteSqlCommand("TRUNCATE TABLE [Pelicula]");
                 db.Peliculas.Load();
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: tabla vaciado con exito  '" );
+
             }
             catch (Exception ex)
             {
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: tabla vaciado:  Error al vaciar BD.Causa: " + ex.Message.ToString() );
                 MessageBox.Show("Error al vaciar BD. Causa: " + ex.Message,
                             "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -383,10 +406,12 @@ namespace PlayStream
                     db.Peliculas.Add(nuevaPelicula);
                     db.SaveChanges();
                     db.Peliculas.Load();
+                    Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: tabla llenada con exito  '");
 
                 }
                 catch (Exception ex)
                 {
+                Config.logger.TraceEvent(TraceEventType.Information, 1, "Inicio: tabla vaciado:  Error al poblar BD.Causa: " + ex.Message.ToString() );
                     MessageBox.Show("Error al añadir una nueva pelicula. Causa: " + ex.Message,
                                 "Atención!", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
